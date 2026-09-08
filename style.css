@@ -108,3 +108,75 @@ button:hover {
 .button-link:hover {
     background-color: #111111;
 }
+
+.dashboard-wrapper {
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.dashboard-card {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.dashboard-header p {
+    margin: 0;
+    color: #666666;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.search-form input {
+    flex: 1;
+}
+
+.search-form button {
+    width: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f3f4f6;
+}
+
+tbody tr:hover {
+    background-color: #f8f9fa;
+}
