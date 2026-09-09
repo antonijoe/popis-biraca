@@ -106,6 +106,18 @@ if ($query != "") {
 
             </div>
 
+            <?php
+
+                if (isAdmin()) {
+
+                    echo '<a class="button-link" href="add_voter.php">';
+                    echo 'Dodaj birača';
+                    echo '</a>';
+
+                }
+
+                ?>
+
             <form class="search-form" method="get" action="dashboard.php">
 
                 <input
@@ -133,6 +145,7 @@ if ($query != "") {
                             <th>OIB</th>
                             <th>Adresa</th>
                             <th>Biračko mjesto</th>
+                            <th>Akcije</th>
                         </tr>
 
                     </thead>
@@ -152,7 +165,25 @@ if ($query != "") {
                                 echo "<td>" . htmlspecialchars($voter['oib']) . "</td>";
                                 echo "<td>" . htmlspecialchars($voter['legalna_adresa']) . "</td>";
                                 echo "<td>" . htmlspecialchars($voter['biracko_mjesto']) . "</td>";
+                                echo "<td>";
 
+                                    if (isAdmin()) {
+
+                                        echo '<a class="table-link" href="edit_voter.php?id=' . $voter['id'] . '">';
+                                        echo 'Uredi';
+                                        echo '</a>';
+
+                                        echo '<a class="table-link delete-link" href="delete_voter.php?id=' . $voter['id'] . '">';
+                                        echo 'Obriši';
+                                        echo '</a>';
+
+                                    } else {
+
+                                        echo "-";
+
+                                    }
+
+                                    echo "</td>";
                                 echo "</tr>";
 
                             }
@@ -160,7 +191,7 @@ if ($query != "") {
                         } else {
 
                             echo "<tr>";
-                            echo "<td colspan='5'>Nema pronađenih birača.</td>";
+                            echo "<td colspan='6'>Nema pronađenih birača.</td>";
                             echo "</tr>";
 
                         }

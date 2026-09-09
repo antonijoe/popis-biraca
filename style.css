@@ -180,3 +180,33 @@ th {
 tbody tr:hover {
     background-color: #f8f9fa;
 }
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #ffffff;
+}
+
+select:focus {
+    outline: none;
+    border-color: #555555;
+}
+
+.table-link {
+    display: inline-block;
+    margin-right: 10px;
+    color: #333333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.table-link:hover {
+    text-decoration: underline;
+}
+
+.delete-link {
+    color: #a00000;
+}
