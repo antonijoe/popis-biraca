@@ -210,3 +210,32 @@ select:focus {
 .delete-link {
     color: #a00000;
 }
+
+form button {
+    transition: background-color 0.2s ease;
+}
+
+input,
+select {
+    transition: border-color 0.2s ease;
+}
+
+table {
+    background-color: #ffffff;
+}
+
+th {
+    font-weight: bold;
+}
+
+td {
+    vertical-align: middle;
+}
+
+.error-box {
+    color: #7a0000;
+}
+
+.button-link {
+    transition: background-color 0.2s ease;
+}

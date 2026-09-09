@@ -33,30 +33,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     } else {
 
-        $sql = "INSERT INTO voters
-                (ime, prezime, oib, legalna_adresa, polling_place_id)
-                VALUES (?, ?, ?, ?, ?)";
+        if (strlen($oib) != 11 || !ctype_digit($oib)) {
 
-        $stmt = mysqli_prepare($spoj, $sql);
-
-        mysqli_stmt_bind_param(
-            $stmt,
-            "ssssi",
-            $ime,
-            $prezime,
-            $oib,
-            $legalna_adresa,
-            $polling_place_id
-        );
-
-        if (mysqli_stmt_execute($stmt)) {
-
-            header('Location: dashboard.php');
-            exit;
+            $greska = "OIB mora sadržavati točno 11 znamenki.";
 
         } else {
 
-            $greska = "Greška pri dodavanju birača.";
+            $sql = "INSERT INTO voters
+                    (ime, prezime, oib, legalna_adresa, polling_place_id)
+                    VALUES (?, ?, ?, ?, ?)";
+
+            $stmt = mysqli_prepare($spoj, $sql);
+
+            mysqli_stmt_bind_param(
+                $stmt,
+                "ssssi",
+                $ime,
+                $prezime,
+                $oib,
+                $legalna_adresa,
+                $polling_place_id
+            );
+
+            if (mysqli_stmt_execute($stmt)) {
+
+                header('Location: dashboard.php');
+                exit;
+
+            } else {
+
+                $greska = "Greška pri dodavanju birača.";
+
+            }
 
         }
 
@@ -134,6 +142,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         id="oib"
                         name="oib"
                         maxlength="11"
+                        pattern="[0-9]{11}"
+                        title="OIB mora sadržavati točno 11 znamenki."
                         required
                     >
 
